@@ -11,7 +11,7 @@ engine = create_engine(DATABASE_URL)
 
 # Create session
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
+#deploy project on ec2
 # Base for models
 Base = declarative_base()
 
