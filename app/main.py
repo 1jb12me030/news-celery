@@ -1,9 +1,14 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
-from .models import News
+from app.models import News
+from app.config import Settings
 
-app = FastAPI()
+# Load settings
+settings = Settings()
+
+# Initialize FastAPI app with debug mode
+app = FastAPI(debug=settings.DEBUG)
 
 @app.get("/news")
 def get_news(db: Session = Depends(get_db)):
