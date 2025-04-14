@@ -2,11 +2,9 @@ from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models import News
-from app.config import Settings
-
+from app.config.settings_config import Settings_config
 # Load settings
-settings = Settings()
-
+settings = Settings_config()
 # Initialize FastAPI app with debug mode
 app = FastAPI(debug=settings.DEBUG)
 

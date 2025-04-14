@@ -1,7 +1,6 @@
 # config.py or settings.py
-from pydantic import BaseSettings
-
-class Settings(BaseSettings):
+from pydantic_settings import BaseSettings
+class Settings_config(BaseSettings):
     DEBUG: bool = False
     ENV: str = "production"
     ALLOWED_HOSTS: list[str] = ["*"]
