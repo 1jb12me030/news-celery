@@ -7,14 +7,10 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install SQLite and dependencies
+# Install PostgreSQL client and dependencies
 RUN apt-get update && apt-get install -y \
-    software-properties-common \
-    sqlite3 libsqlite3-dev && \
+    libpq-dev && \
     rm -rf /var/lib/apt/lists/*
-
-# Verify SQLite installation
-RUN sqlite3 --version
 
 # Copy the project files to the container
 COPY . /app/
@@ -23,9 +19,8 @@ COPY . /app/
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
-# Expose the port for Django
+# Expose the port for FastAPI
 EXPOSE 8000
 
-# Run Django server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000", "--noreload"]
-
+# Run FastAPI server with Uvicorn
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

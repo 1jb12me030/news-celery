@@ -37,3 +37,9 @@ urllib3==2.3.0
 uvicorn==0.34.0
 vine==5.1.0
 wcwidth==0.2.13
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary  
+pydantic-settings # Add this line
+# Add any other dependencies your project requires
