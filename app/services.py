@@ -1,8 +1,13 @@
 import requests
 from sqlalchemy.orm import Session
 from app.models import News
+from dotenv import load_dotenv
+import os
 
-NEWS_API_KEY = "7e4d4419add548a085633a31ca038f07"
+load_dotenv()  # Load variables from .env
+
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+
 
 def fetch_news():
     """Fetch latest news articles from News API."""

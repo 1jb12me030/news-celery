@@ -3,3 +3,4 @@ venv/
 *.bak
 *.dat
 *.dir
+.env
