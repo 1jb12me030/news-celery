@@ -2,9 +2,14 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
 
+load_dotenv()  # Load variables from .env
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 # Database URL
-DATABASE_URL = "postgresql://postgres:1234@localhost:5432/news_db"
+#DATABASE_URL = #"postgresql://postgres:1234@localhost:5432/news_db"
 
 # Create database engine
 engine = create_engine(DATABASE_URL)

@@ -4,3 +4,4 @@ venv/
 *.dat
 *.dir
 .env
+.env
